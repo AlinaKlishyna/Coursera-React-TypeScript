@@ -42,4 +42,29 @@ type CustomeItemHash2 = {
     [key: number]: string
 }
 
+type Function = {
+    onHover: () => void;
+    onChange: (id: number) => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const someFunc = (a: number, b: number) => {
+    return a + b
+}
+
+type OptionalProps = {
+    required: string;
+    optional?: string;
+}
+
+type OptionalProps2 = {
+    required: string;
+    optional?: string;
+}
+
+interface OptionalProps3 {
+    required: string;
+    optional?: string;
+}
+
 export { }
