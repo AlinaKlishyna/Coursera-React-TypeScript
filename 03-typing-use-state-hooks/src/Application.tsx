@@ -1,19 +1,21 @@
-import { movies } from './movies';
+import { movies, MovieType } from './movies';
+import { useState } from 'react';
 
-type MovieProps = {
-  title: string;
-  year: number;
-};
+// type MovieProps = {
+//   title: string;
+//   year: number;
+// };
 
-const Movie = ({ title, year }: MovieProps) => {
+const Movie = ({ title, year }: MovieType) => {
+  const [hidden, setHidden] = useState(true)
   return (
     <article>
       <header>{title}</header>
       <p>
-        <span>{year}</span>
+        <span className={`${hidden ? 'blurred' : 'visible'}`}>{year}</span>
       </p>
       <footer>
-        <button>Toggle</button>
+        <button onClick={() => setHidden(!hidden)}>Toggle</button>
       </footer>
     </article>
   );
