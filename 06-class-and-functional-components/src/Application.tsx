@@ -1,6 +1,19 @@
 import React from 'react';
 
-class Counter extends React.Component {
+type MyPropType = {
+  message: string
+}
+
+type MyStateType = {
+  count: number
+}
+
+class Counter extends React.Component<MyPropType, MyStateType> {
+  state: MyStateType = {
+    count: 0
+  }
+
+  increment = () => this.setState({ count: this.state.count + 1 })
 
   render() {
     return (
@@ -8,6 +21,7 @@ class Counter extends React.Component {
         <p>
           {this.props.message} {this.state.count}
         </p>
+        <button onClick={this.increment}> Increment by 1</button>
       </div>
     );
   }
@@ -15,7 +29,7 @@ class Counter extends React.Component {
 
 class Application extends React.Component {
   render() {
-    return <Counter />;
+    return <Counter message="The current count is" />;
   }
 }
 
